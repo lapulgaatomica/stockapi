@@ -26,7 +26,7 @@ public class SwaggerConfiguration {
                 .useDefaultResponseMessages(false);
     }
 
-    @Bean
+    @Bean//hides the models in the swagger ui link
     UiConfiguration uiConfig() {
         return UiConfigurationBuilder.builder()
                 .defaultModelsExpandDepth(-1)

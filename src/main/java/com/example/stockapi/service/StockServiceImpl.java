@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StockServiceImpl implements StockService{
+public class StockServiceImpl implements StockService {
     private final StockRepository stockRepository;
 
     public StockServiceImpl(StockRepository stockRepository) {
@@ -26,12 +26,12 @@ public class StockServiceImpl implements StockService{
 
     public Stock updateStock(StockDto stockDto, Long id){
         Stock stock = stockRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("stock not found"));
-        if(stockDto.getCurrentPrice() != null){
+        if(stockDto.getCurrentPrice() != null)
             stock.setCurrentPrice(stockDto.getCurrentPrice());
-        }
-        if(stockDto.getName() != null && !stockDto.getName().trim().equals("")){
+
+        if(stockDto.getName() != null && !stockDto.getName().trim().equals(""))
             stock.setName(stockDto.getName());
-        }
+
         return stockRepository.save(stock);
     }
 
